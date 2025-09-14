@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cheung Yiu Wa (Jacky) — Portfolio</title>
+  <meta name="description" content="Personal website of Cheung Yiu Wa (Jacky) — HKUST BEng CS (AI). Experience, skills, education, and contact." />
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --bg-2:#0a121c;
+      --panel:#0f1520;
+      --panel-2:#111a27;
+      --text:#e6edf3;
+      --muted:#9fb0c3;
+      --link:#8ab4ff;
+      --brand:#6cc0ff;
+      --accent:#22d3ee;
+      --border:#1f2937;
+      --chip:#172232;
+      --ok:#34d399;
+      --warn:#f59e0b;
+      --danger:#ef4444;
+      --radius-xl:18px;
+      --radius:14px;
+      --radius-sm:10px;
+      --shadow:0 10px 30px rgba(0,0,0,0.45);
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;padding:0;background:linear-gradient(180deg,var(--bg),var(--bg-2));
+      color:var(--text);
+      font-family:Inter, ui-sans-serif, system-ui, Segoe UI, Roboto, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;
+      line-height:1.6;
+    }
+    img{max-width:100%;display:block}
+    a{color:var(--link);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:24px}
+    header.site{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:saturate(140%) blur(10px);
+      background:rgba(11,15,20,0.6);
+      border-bottom:1px solid var(--border);
+    }
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      padding:12px 24px;
+    }
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.3px}
+    .brand .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--accent));box-shadow:0 0 16px rgba(34,211,238,.5)}
+    .nav a.button{
+      background:linear-gradient(135deg,var(--brand),var(--accent));
+      color:#001018;
+      font-weight:700;
+      border:none;border-radius:999px;
+      padding:10px 16px;
+      box-shadow:var(--shadow);
+      transition:transform .15s ease, opacity .15s ease;
+      white-space:nowrap;
+    }
+    .nav a.button:hover{transform:translateY(-1px);opacity:.95;text-decoration:none}
+
+    .hero{
+      display:grid;grid-template-columns:1.2fr .8fr;gap:24px;
+      padding:32px 24px 8px;
+      align-items:stretch;
+    }
+    @media (max-width:900px){.hero{grid-template-columns:1fr}}
+    .card{
+      background:linear-gradient(180deg,var(--panel),var(--panel-2));
+      border:1px solid var(--border);
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow);
+    }
+    .hero .intro{padding:28px}
+    .kicker{color:var(--muted);text-transform:uppercase;letter-spacing:.18em;font-size:.78rem}
+    h1{margin:.2em 0 .1em;font-size:2.1rem}
+    .subtitle{color:var(--muted)}
+    .quick{
+      display:flex;flex-wrap:wrap;gap:10px;margin-top:16px
+    }
+    .chip{
+      background:var(--chip);
+      border:1px solid var(--border);
+      color:var(--text);
+      padding:8px 12px;border-radius:999px;font-size:.9rem
+    }
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+    .actions a.secondary{
+      border:1px solid var(--border);
+      background:#0d1522;color:var(--text);
+      padding:10px 14px;border-radius:10px
+    }
+    .photo-card{
+      padding:0;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden
+    }
+    /* PROFILE IMAGE PLACEHOLDER
+       Replace background-image with your uploaded image URL later */
+    .photo{
+      width:100%;aspect-ratio:1/1;border-radius:var(--radius-xl);
+      background:radial-gradient(100% 100% at 50% 0%, #172434, #0c121b);
+      border:1px dashed rgba(138,180,255,.4);
+      display:flex;align-items:center;justify-content:center;
+      color:var(--muted);
+      text-align:center;padding:16px;margin:20px;
+      position:relative;isolation:isolate;
+    }
+    .photo::before{
+      content:"";position:absolute;inset:-20%;z-index:-1;
+      background:radial-gradient(60% 60% at 30% 20%, rgba(108,192,255,.25), transparent 60%),
+                  radial-gradient(60% 60% at 70% 80%, rgba(34,211,238,.2), transparent 60%);
+      filter:blur(24px)
+    }
+    .photo .hint{font-size:.95rem}
+    .photo .hint strong{color:var(--link)}
+
+    .section{margin-top:28px}
+    .section h2{
+      margin:0 0 12px;font-size:1.4rem;letter-spacing:.3px
+    }
+    .grid{
+      display:grid;gap:16px
+    }
+    @media (min-width:800px){
+      .grid.two{grid-template-columns:1fr 1fr}
+      .grid.three{grid-template-columns:repeat(3,1fr)}
+    }
+    .panel{padding:20px;border-radius:var(--radius);background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--border)}
+    .item{display:grid;grid-template-columns:auto 1fr;gap:12px}
+    .dotline{width:10px;height:10px;border-radius:50%;background:var(--brand);margin-top:8px;box-shadow:0 0 10px rgba(108,192,255,.7)}
+    .meta{color:var(--muted);font-size:.92rem}
+    .title{font-weight:700}
+    .stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .tag{font-size:.82rem;padding:6px 10px;border-radius:999px;background:#122033;border:1px solid var(--border);color:#cfe6ff}
+    .skills{display:grid;gap:10px}
+    .skill-row{display:grid;grid-template-columns:120px 1fr;gap:12px;align-items:center}
+    .bar{height:10px;background:#0b1624;border:1px solid var(--border);border-radius:999px;overflow:hidden}
+    .bar > span{display:block;height:100%;background:linear-gradient(90deg,var(--brand),var(--accent))}
+    .edu-grid .item{align-items:flex-start}
+    .footer{
+      padding:32px 24px;margin-top:32px;border-top:1px solid var(--border);color:var(--muted);font-size:.95rem
+    }
+    .icon{
+      width:18px;height:18px;display:inline-block;border-radius:4px;
+      background:linear-gradient(135deg,var(--brand),var(--accent));
+      margin-right:8px;vertical-align:-3px
+    }
+    /* Small helper for anchor spacing */
+    .anchor{scroll-margin-top:80px}
+    /* Smooth scroll */
+    html{scroll-behavior:smooth}
+  </style>
+</head>
+<body>
+  <header class="site">
+    <div class="nav wrap">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>Cheung Yiu Wa (Jacky)</span>
+      </div>
+      <nav class="links" aria-label="Primary">
+        <a class="button" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <div class="card intro">
+        <div class="kicker">HKUST BEng CS (AI)</div>
+        <h1>Cheung Yiu Wa 張耀華</h1>
+        <p class="subtitle">Undergraduate in Computer Science with Extended Major in AI at HKUST. Interested in software engineering, compilers, and human‑AI programming interfaces.</p>
+        <div class="quick" aria-label="Contact">
+          <span class="chip">📍 Hong Kong</span>
+          <a class="chip" href="tel:+85256918816">📞 +852 5691 8816</a>
+          <a class="chip" href="mailto:ywcheungaf@connect.ust.hk">✉️ ywcheungaf@connect.ust.hk</a>
+          <a class="chip" href="#" aria-label="LinkedIn profile">in LinkedIn</a>
+        </div>
+        <div class="actions">
+          <a class="secondary" href="#experience">Experience</a>
+          <a class="secondary" href="#education">Education</a>
+          <a class="secondary" href="#skills">Skills</a>
+          <a class="secondary" href="#awards">Awards</a>
+          <a class="secondary" href="#activities">Activities</a>
+        </div>
+      </div>
+
+      <aside class="card photo-card" aria-labelledby="profile-photo-title">
+        <div class="photo" role="img" aria-label="Profile image placeholder">
+          <!-- PROFILE IMAGE SPACE:
+               To add your image later, either:
+               1) Replace this entire div with: <img src="YOUR_IMAGE_URL" alt="Portrait of Cheung Yiu Wa" class="profile-img" />
+               2) Or set CSS background, e.g. style="background-image:url('YOUR_IMAGE_URL'); background-size:cover; background-position:center;" -->
+          <div id="profile-photo-title" class="hint">
+            <strong>Profile photo goes here</strong><br/>
+            Replace this box with your image later.
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="experience" class="wrap section anchor">
+      <h2>Work Experiences</h2>
+      <div class="grid">
+        <div class="panel item">
+          <div class="dotline"></div>
+          <div>
+            <div class="title">Teaching Assistant (UGTA) — CSE, HKUST</div>
+            <div class="meta">COMP 2012H — Honors OOP and Data Structures • Summer 2025</div>
+            <ul>
+              <li>Helped design programming assignments.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="panel item">
+          <div class="dotline"></div>
+          <div>
+            <div class="title">Student Helper / Teaching Assistant — CDGT, HKUST</div>
+            <div class="meta">Enrichment Program for Gifted Learners — Python for Everyone • Spring/Summer 2025</div>
+            <ul>
+              <li>Supported instruction and learner engagement in Python fundamentals.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="panel item">
+          <div class="dotline"></div>
+          <div>
+            <div class="title">Teaching Assistant (UGTA) — CSE, HKUST</div>
+            <div class="meta">COMP 2611 — Computer Organization • Spring 2025 & Fall 2025</div>
+            <ul>
+              <li>Facilitated labs, clarified architecture concepts, and graded assignments.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="panel item">
+          <div class="dotline"></div>
+          <div>
+            <div class="title">Researcher — UROP, HKUST</div>
+            <div class="meta">Using Large Language Models (LLMs) for Software Development • Spring 2025</div>
+            <ul>
+              <li>Explored workflows for leveraging LLMs in code generation and review.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="panel item">
+          <div class="dotline"></div>
+          <div>
+            <div class="title">Technician — Manon Tech Company Limited</div>
+            <div class="meta">Jun 2024 – Aug 2024; Jan 2025</div>
+            <ul>
+              <li>DSHK: Deployed IT infrastructure (APs, IP phones, CCTV, audio).</li>
+              <li>HK West Kowloon Station: Configured railway platform safety system.</li>
+              <li>Designed and implemented the official company website: <a href="http://www.manontech.com/">manontech.com</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="panel item">
+          <div class="dotline"></div>
+          <div>
+            <div class="title">Academic Tutor — Torch Education</div>
+            <div class="meta">Feb 2024 – Aug 2024</div>
+            <ul>
+              <li>Organized study materials and taught students from P1 to S6 in groups of six.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="panel item">
+          <div class="dotline"></div>
+          <div>
+            <div class="title">Private Tutor</div>
+            <div class="meta">Feb 2025 – Apr 2025</div>
+            <ul>
+              <li>1‑on‑1 tutoring for HKDSE ICT (F6 student).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="wrap section anchor">
+      <h2>Education</h2>
+      <div class="grid two edu-grid">
+        <div class="panel item">
+          <div class="dotline"></div>
+          <div>
+            <div class="title">BEng in Computer Science (Extended Major in AI)</div>
+            <div class="meta">The Hong Kong University of Science and Technology • Sep 2023 – Present</div>
+            <div class="meta">CGA: 3.657 • Expected Graduation: 2027</div>
+            <div class="stack">
+              <span class="tag">AI</span>
+              <span class="tag">Software Engineering</span>
+              <span class="tag">Data Structures</span>
+              <span class="tag">OOP</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel item">
+          <div class="dotline"></div>
+          <div>
+            <div class="title">Scientia Secondary School</div>
+            <div class="meta">Sep 2017 – Jun 2023</div>
+            <ul>
+              <li>HKDSE 2023: 5** in ICT, 5 in Mathematics.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="panel item">
+          <div class="dotline"></div>
+          <div>
+            <div class="title">Tech Basics (Applied Learning) — HKBU</div>
+            <div class="meta">Feb 2021 – Jul 2022 • Grade: Attained with Distinction (II)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="wrap section anchor">
+      <h2>Programming Skills</h2>
+      <div class="panel">
+        <div class="skills">
+          <div class="skill-row">
+            <div>C++, C</div>
+            <div class="bar" aria-label="Advanced level in C/C++"><span style="width:90%"></span></div>
+          </div>
+          <div class="skill-row">
+            <div>Python</div>
+            <div class="bar" aria-label="Intermediate level in Python"><span style="width:70%"></span></div>
+          </div>
+          <div class="skill-row">
+            <div>Web (HTML, CSS, JS)</div>
+            <div class="bar" aria-label="Intermediate level in Web"><span style="width:70%"></span></div>
+          </div>
+          <div class="skill-row">
+            <div>Java</div>
+            <div class="bar" aria-label="Intermediate level in Java"><span style="width:65%"></span></div>
+          </div>
+          <div class="skill-row">
+            <div>ML Libraries</div>
+            <div class="bar" aria-label="Intermediate level in ML libraries"><span style="width:60%"></span></div>
+          </div>
+        </div>
+        <div class="stack" style="margin-top:14px">
+          <span class="tag">OOP</span>
+          <span class="tag">Data Structures</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">scikit‑learn</span>
+          <span class="tag">Keras</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="awards" class="wrap section anchor">
+      <h2>Academic Awards</h2>
+      <div class="grid two">
+        <div class="panel">
+          <div class="title">Admissions Scholarship for HKDSE Holders 2023/24</div>
+          <div class="meta">HKUST • 12 Sep 2023</div>
+        </div>
+        <div class="panel">
+          <div class="title">Subject Award (ICT)</div>
+          <div class="meta">Scientia Secondary School • 08 Jul 2023</div>
+        </div>
+        <div class="panel">
+          <div class="title">Excellent Academic Performance Award</div>
+          <div class="meta">Scientia Secondary School • 11 Jul 2022</div>
+        </div>
+        <div class="panel">
+          <div class="title">Subject Award (ICT)</div>
+          <div class="meta">Scientia Secondary School • 11 Jul 2022</div>
+        </div>
+        <div class="panel">
+          <div class="title">Excellent Conduct Award</div>
+          <div class="meta">Scientia Secondary School • 12 Jul 2021</div>
+        </div>
+        <div class="panel">
+          <div class="title">Subject Award (ICT)</div>
+          <div class="meta">Scientia Secondary School • 12 Jul 2021</div>
+        </div>
+        <div class="panel">
+          <div class="title">Remarkable Progress in Academic</div>
+          <div class="meta">Scientia Secondary School • 12 Jul 2021</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="activities" class="wrap section anchor">
+      <h2>Extra‑curricular Activities</h2>
+      <div class="grid two">
+        <div class="panel">
+          <div class="title">Jumping out of Your Comfort Zone</div>
+          <div class="meta">HKUST Connect • 07 Feb 2025</div>
+        </div>
+        <div class="panel">
+          <div class="title">Leadership Training Day 2025</div>
+          <div class="meta">HKIE‑YMC • 18 Jan 2025</div>
+        </div>
+        <div class="panel">
+          <div class="title">“Ma Wan Go Green!” Carnival — Volunteer</div>
+          <div class="meta">Rainbow Foundation • 09 Nov 2024</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="wrap section anchor">
+      <h2>Contact</h2>
+      <div class="panel">
+        <p>
+          <span class="icon"></span>
+          Email: <a href="mailto:ywcheungaf@connect.ust.hk">ywcheungaf@connect.ust.hk</a>
+        </p>
+        <p>
+          <span class="icon"></span>
+          Phone: <a href="tel:+85256918816">+852 5691 8816</a>
+        </p>
+        <p>
+          <span class="icon"></span>
+          Location: Hong Kong
+        </p>
+        <p>
+          <span class="icon"></span>
+          LinkedIn: <a href="#" aria-label="LinkedIn profile">Add your LinkedIn URL</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer wrap">
+    © <span id="y"></span> Cheung Yiu Wa. Built with semantic HTML, accessible contrast, and a dark theme.
+  </footer>
+
+  <script>
+    // Update footer year
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
